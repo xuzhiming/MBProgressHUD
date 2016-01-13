@@ -895,21 +895,29 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 #pragma mark - Lifecycle
 
 - (id)init {
-	return [self initWithFrame:CGRectMake(.0f, .0f, 120.0f, 20.0f)];
+    return [self initWithFrame:CGRectMake(.0f, .0f, 120.0f, 20.0f)];
 }
 
 - (id)initWithFrame:(CGRect)frame {
-	self = [super initWithFrame:frame];
-	if (self) {
-		_progress = 0.f;
-		_lineColor = [UIColor whiteColor];
-		_progressColor = [UIColor whiteColor];
-		_progressRemainingColor = [UIColor clearColor];
-		self.backgroundColor = [UIColor clearColor];
-		self.opaque = NO;
-		[self registerForKVO];
-	}
-	return self;
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self configureProgressView];
+    }
+    return self;
+}
+
+- (void)awakeFromNib{
+    [self configureProgressView];
+}
+
+- (void)configureProgressView{
+    _progress = 0.f;
+    _lineColor = [UIColor whiteColor];
+    _progressColor = [UIColor whiteColor];
+    _progressRemainingColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor clearColor];
+    self.opaque = NO;
+    [self registerForKVO];
 }
 
 - (void)dealloc {
