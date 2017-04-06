@@ -895,7 +895,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 #pragma mark - Lifecycle
 
 - (id)init {
-    return [self initWithFrame:CGRectMake(.0f, .0f, 120.0f, 20.0f)];
+    return [self initWithFrame:CGRectMake(.0f, .0f, 120.0f, 12.0f)];
 }
 
 - (id)initWithFrame:(CGRect)frame {
